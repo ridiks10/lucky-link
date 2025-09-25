@@ -12,6 +12,7 @@ final class RegenerateLink
     {
         $link->update([
             'link_id' => $link->newUniqueId(),
+            'expires_at' => now()->addDays(AccessLink::EXPIRES_DAYS),
         ]);
 
         return $link;
